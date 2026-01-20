@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ vựng Topic: Family- Lớp Anh thầy Kết</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+ header {
+  background-color: #ffd6ba;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #7a4e3e;
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: space-between;  /* Left luôn bên trái, center căn giữa */
+  gap: 15px;
+}
+
+/* Left: icon + home text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;          /* không bị co lại */
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: #7a4e3e;
+  text-decoration: none;
+}
+
+.header-left a i {
+  font-size: 28px;
+}
+
+/* Center title */
+header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+/* ===== TOP SELECT ===== */
+.top-select {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 40px;
+}
+
+select {
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #a0e7e5;
+  background-color: #e3fdfd;
+}
+
+
+
+/* MEDIA QUERY cho điện thoại */
+@media (max-width: 480px) {
+
+    .header-center {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .header-left {
+    order: 1;
+  }
+}
+
+  header {
+    padding: 10px 15px;
+  }
+  .header-left a {
+    font-size: 18px;
+  }
+  .header-left a i {
+    font-size: 20px;
+  }
+  .header-center {
+    font-size: 22px;
+  }
+}
+
+
+  .top-select {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 40px;
+  }
+
+  select {
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #a0e7e5;
+    background-color: #e3fdfd;
+  }
+
+  /* Word list */
+  .word-list {
+    width: 85%;
+    margin: 20px auto;
+    background-color: #E0FBE2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+.word-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #ffb3ba;
+  transition: background-color .15s ease-in-out;
+}
+.word-row:last-child { border-bottom: none; }
+
+/* Hover đổi màu */
+.word-row:hover {
+  background-color: #fffacd; /* xanh nhạt dễ thấy */
+  cursor: pointer;
+}
+
+  /* Ôn tập */
+  .review-box {
+    margin: 40px auto;
+    width: 70%;
+    background-color: #ffe5ec;
+    padding: 25px;
+    font-weight: bold;
+    color: #607274;
+    font-size: 26px;
+    border-radius: 12px;
+  }
+  .review-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+.review-buttons button {
+  background-color: #a0e7e5;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review-buttons button:hover {
+  background-color: #ffb3ba;
+}
+
+
+  /* Bài tập */
+  .exercise {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .exercise input {
+    width: 220px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+
+  .exercise button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 18px;
+    background-color: #a0e7e5;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exercise button:hover {
+    background-color: #ffb3ba;
+  }
+
+  .result {
+    font-weight: bold;
+    color: #C5705D;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  footer {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7a4e3e;
+    background-color: #fff0e1;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: .9;
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    0% { transform: translate(0,0) scale(1); opacity:1;}
+    50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
+    100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="https://ketng91.github.io/TuvungTHPTQ-homepage/">
+      <i class="fa-solid fa-house"></i> Lớp Anh thầy Kết
+    </a>
+  </div>
+  <div class="header-center">
+    Từ vựng Topic: Family
+  </div>
+</header>
+
+<!-- Bộ chọn -->
+<div class="top-select">
+  <select id="wordList">
+    <option value="1">Từ vựng Topic: Family</option>
+
+
+  </select>
+</div>
+
+
+
+<script>
+// Bắt sự kiện Enter cho tất cả các ô input trong bài tập
+document.addEventListener("DOMContentLoaded", function() {
+  const exerciseInputs = document.querySelectorAll(".exercise input");
+
+  exerciseInputs.forEach(input => {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {      // Kiểm tra nếu nhấn Enter
+        e.preventDefault();          // Ngăn việc xuống dòng mặc định
+        const checkBtn = this.nextElementSibling; // giả định nút Check ngay sau input
+        if (checkBtn && checkBtn.tagName === "BUTTON") {
+          checkBtn.click();         // kích hoạt nút Check
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+
+<!-- Danh sách từ vựng -->
+<div class="word-list" id="wordContainer"></div>
+
+<!-- Ôn tập -->
+<div class="review-box">
+  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+    
+  <!-- Hiển thị đáp án -->
+<div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
+   
+  <!-- Nút bấm -->
+  <div class="review-buttons" style="margin-top:20px;">
+    <button onclick="know()">Đã biết</button>
+    <button onclick="dontKnow()">Chưa biết</button>
+    <button onclick="nextWord()">Tiếp theo</button>
+  </div>
+
+</div>
+
+<!-- Bài tập -->
+<div class="exercise" id="exercise"></div>
+
+<footer>Chúc mừng bạn đã hoàn thành bài học!</footer>
+<script>
+const selectEl = document.getElementById("wordList");
+
+function sortOptionsByNumber() {
+  const opts = Array.from(selectEl.options);
+
+  opts.sort((a, b) => {
+    return Number(a.value) - Number(b.value);
+  });
+
+  selectEl.innerHTML = "";
+  opts.forEach(o => selectEl.appendChild(o));
+}
+
+// sort ngay khi load
+sortOptionsByNumber();
+
+// sort lại khi mở dropdown
+selectEl.addEventListener("mousedown", sortOptionsByNumber);
+selectEl.addEventListener("touchstart", sortOptionsByNumber);
+</script>
+
+<script>
+/********** DATA **********/
+const data = {
+  1: [
+  { en: "spouse /spaʊs/", vn: "vợ hoặc chồng", tick: false },
+  { en: "breadwinner /ˈbrɛdˌwɪnər/", vn: "người trụ cột (kiếm tiền chính)", tick: false },
+  { en: "homemaker /ˈhoʊmˌmeɪkər/", vn: "người nội trợ", tick: false },
+  { en: "caregiver /ˈkɛrˌɡɪvər/", vn: "người chăm sóc (trẻ em/người già)", tick: false },
+  { en: "only child /ˈoʊnli tʃaɪld/", vn: "con một", tick: false },
+  { en: "eldest child /ˈɛldəst tʃaɪld/", vn: "con cả", tick: false },
+  { en: "youngest sibling /ˈjʌŋɡəst ˈsɪblɪŋ/", vn: "em út", tick: false },
+  { en: "nuclear family /ˌnukliər ˈfæməli/", vn: "gia đình hạt nhân (cha mẹ và con cái)", tick: false },
+  { en: "extended family /ɪkˈstɛndəd ˈfæməli/", vn: "gia đình đa thế hệ / đại gia đình", tick: false },
+  { en: "immediate family /ɪˈmidiət ˈfæməli/", vn: "gia đình ruột thịt (ruột rà gần nhất)", tick: false },
+  { en: "family ties /ˈfæməli taɪz/", vn: "mối quan hệ gia đình", tick: false },
+  { en: "bond /bɑːnd/", vn: "sự gắn kết / tình cảm gắn bó", tick: false },
+  { en: "unconditional love /ˌʌnkənˈdɪʃənəl lʌv/", vn: "tình yêu vô điều kiện", tick: false },
+  { en: "family values /ˈfæməli ˈvæljuz/", vn: "giá trị gia đình", tick: false },
+  { en: "respect for elders /rɪˈspɛkt fər ˈɛldərz/", vn: "tôn trọng người lớn tuổi", tick: false },
+  { en: "filial piety /ˈfɪliəl ˈpaɪəti/", vn: "lòng hiếu thảo", tick: false },
+  { en: "family reunion /ˈfæməli riˈunjən/", vn: "đoàn tụ gia đình", tick: false },
+  { en: "inherit traits /ɪnˈhɛrət treɪts/", vn: "thừa hưởng các đặc điểm (từ bố mẹ)", tick: false },
+  { en: "sibling rivalry /ˈsɪblɪŋ ˈraɪvəlri/", vn: "sự đố kỵ / tranh đua giữa anh chị em", tick: false },
+  { en: "divorce /dɪˈvɔːrs/", vn: "sự ly hôn", tick: false },
+  { en: "single-parent families /ˈsɪŋɡəl ˈpɛrənt ˈfæməlɪz/", vn: "gia đình đơn thân", tick: false },
+  { en: "blended families /ˌblɛndəd ˈfæməlɪz/", vn: "gia đình có con riêng con chung", tick: false },
+  { en: "stepfamilies /ˈstɛpˌfæməlɪz/", vn: "gia đình có bố dượng/mẹ kế", tick: false },
+  { en: "family dynamics /ˈfæməli daɪˈnæmɪks/", vn: "sự tương tác/biến chuyển trong gia đình", tick: false },
+  { en: "estranged /ɪˈstreɪndʒd/", vn: "xa cách / không còn giữ liên lạc", tick: false },
+  { en: "close-knit family /kloʊs nɪt ˈfæməli/", vn: "gia đình khăng khít / gắn bó", tick: false },
+  { en: "upbringing /ˈʌpˌbrɪŋɪŋ/", vn: "sự nuôi dạy / giáo dục từ bé", tick: false },
+  { en: "parental guidance /pəˈrɛntəl ˈɡaɪdəns/", vn: "sự hướng dẫn của cha mẹ", tick: false },
+  { en: "overprotective /ˌoʊvərprəˈtɛktɪv/", vn: "bao bọc quá mức", tick: false },
+  { en: "generation gap /ˌdʒɛnəˈreɪʃən ɡæp/", vn: "khoảng cách thế hệ", tick: false },
+  { en: "in-laws /ˈɪn lɔːz/", vn: "họ hàng bên vợ/chồng", tick: false },
+  { en: "family breakdown /ˈfæməli ˈbreɪkˌdaʊn/", vn: "sự tan vỡ gia đình", tick: false },
+  { en: "remarriage /riˈmærɪdʒ/", vn: "tái hôn", tick: false },
+  { en: "cohabitation /koʊˌhæbɪˈteɪʃən/", vn: "sống thử / sống chung không kết hôn", tick: false },
+  { en: "dual-income family /ˈduəl ˈɪnkʌm ˈfæməli/", vn: "gia đình có hai nguồn thu nhập", tick: false },
+  { en: "latchkey child /ˈlætʃki tʃaɪld/", vn: "trẻ tự quản (ở nhà một mình khi bố mẹ đi làm)", tick: false },
+  { en: "work-family balance /wɜːrk ˈfæməli ˈbæləns/", vn: "cân bằng giữa công việc và gia đình", tick: false },
+  { en: "aging parents /ˈeɪdʒɪŋ ˈpɛrənts/", vn: "cha mẹ già", tick: false },
+  { en: "empty nest syndrome /ˈɛmpti nɛst ˈsɪndroʊm/", vn: "hội chứng tổ ấm trống trải", tick: false },
+  { en: "nurturing environment /ˈnɜːrtʃərɪŋ ɪnˈvaɪrənmənt/", vn: "môi trường nuôi dưỡng tốt", tick: false },
+  { en: "strict upbringing /strɪkt ˈʌpˌbrɪŋɪŋ/", vn: "sự nuôi dạy nghiêm khắc", tick: false },
+  { en: "permissive parenting /pərˈmɪsɪv ˈpɛrəntɪŋ/", vn: "cách nuôi dạy nuông chiều", tick: false },
+  { en: "role model /roʊl ˈmɑːdəl/", vn: "hình mẫu lý tưởng / tấm gương", tick: false },
+  { en: "black sheep of the family /blæk ʃip əv ðə ˈfæməli/", vn: "kẻ lạc loài / đứa con hư trong nhà", tick: false },
+  { en: "run in the family /rʌn ɪn ðə ˈfæməli/", vn: "có tính di truyền trong gia đình", tick: false },
+  { en: "like father, like son /laɪk ˈfɑːðər laɪk sʌn/", vn: "cha nào con nấy", tick: false },
+  { en: "family gathering /ˈfæməli ˈɡæðərɪŋ/", vn: "buổi tụ họp gia đình", tick: false },
+  { en: "spend quality time /spɛnd ˈkwɑːləti taɪm/", vn: "dành thời gian chất lượng cho nhau", tick: false },
+  { en: "share household chores /ʃɛr ˈhaʊshoʊld tʃɔːrz/", vn: "chia sẻ việc nhà", tick: false },
+  { en: "bring up children /brɪŋ ʌp ˈtʃɪldrən/", vn: "nuôi nấng con cái", tick: false },
+  { en: "look after grandparents /lʊk ˈæftər ˈɡrændˌpɛrənts/", vn: "chăm sóc ông bà", tick: false },
+  { en: "pass down traditions /pæs daʊn trəˈdɪʃənz/", vn: "truyền lại các truyền thống", tick: false },
+  { en: "blood is thicker than water", vn: "một giọt máu đào hơn ao nước lã", tick: false },
+  { en: "own flesh and blood /oʊn flɛʃ ənd blʌd/", vn: "người máu mủ ruột thịt", tick: false },
+  { en: "follow in sb's footsteps /ˈfɑːloʊ ɪn ˈfʊtˌstɛps/", vn: "nối nghiệp / theo bước chân ai", tick: false },
+  { en: "bring home the bacon /brɪŋ hoʊm ðə ˈbeɪkən/", vn: "kiếm tiền nuôi gia đình", tick: false },
+  { en: "a chip off the old block /ə tʃɪp ɔːf ðə oʊld blɑːk/", vn: "giống bố/mẹ như đúc", tick: false },
+  { en: "ties that bind /taɪz ðæt baɪnd/", vn: "mối ràng buộc không thể tách rời", tick: false },
+  { en: "patch up a relationship /pætʃ ʌp ə rɪˈleɪʃənˌʃɪp/", vn: "hàn gắn một mối quan hệ", tick: false },
+  { en: "fall out with sb /fɔːl aʊt wɪð/", vn: "cãi vã / bất hòa với ai", tick: false }
+  ],
+
+};
+
+const exercises = {
+  1: [
+    {q:"The company launched a massive ________ to promote its new phone.", a:"advertising campaign"},
+    {q:"Most social media platforms rely heavily on ________ to operate.", a:"advertising revenue"},
+    {q:"Modern societies are often driven by a culture of ________.", a:"consumerism"},
+    {q:"Many online shoppers fall into the trap of ________ during big sales.", a:"impulse buying"},
+    {q:"Brands use ________ to create trust.", a:"celebrity endorsement"},
+    {q:"Athletes are paid large sums to ________ a product.", a:"endorse"}
+  ],
+  2: [
+    {q:"Famous athletes can boost sales through product ________.", a:"endorsement"},
+{q:"Companies must protect their ________ by maintaining consistent quality.", a:"brand equity"},
+{q:"A singer with strong ________ can attract millions of new customers.", a:"celebrity appeal"},
+{q:"Brands aim to build long-term ________ among returning customers.", a:"brand loyalty"},
+{q:"A poorly handled ________ may damage both the celebrity and the brand.", a:"celebrity scandal"},
+  ],
+
+
+
+
+
+};
+
+let currList = 1, listCopy=[], index=0;
+
+/********** LOAD LIST **********/
+function loadList(){
+  currList = document.getElementById("wordList").value;
+  listCopy = [...data[currList]];
+  renderWords();
+  index=-1;
+  nextWord();
+  loadExercises();
+}
+
+document.getElementById("wordList").onchange = loadList;
+loadList();
+
+/********** RENDER & SORT **********/
+function renderWords(){
+  const box=document.getElementById("wordContainer");
+  box.innerHTML="";
+
+  let sorted=[...data[currList]].sort((a,b)=>b.tick - a.tick);
+
+  sorted.forEach(item=>{
+    let realIndex = data[currList].indexOf(item);
+    box.innerHTML+=`
+      <div class="word-row">
+        <span>${item.en}: ${item.vn}</span>
+        <input type="checkbox" ${item.tick?"checked":""} onclick="toggleTick(${realIndex})">
+      </div>`;
+  });
+}
+
+/********** TICK UPDATE **********/
+function toggleTick(realIndex){
+  data[currList][realIndex].tick = !data[currList][realIndex].tick;
+  renderWords();
+}
+
+/********** REVIEW **********/
+function nextWord(){
+  document.getElementById("answer").innerHTML="";
+  if(listCopy.length===0){
+    document.getElementById("vietWord").innerHTML="🎉 Bạn đã học xong hết!";
+    return;
+  }
+  index=Math.floor(Math.random()*listCopy.length);
+  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+}
+
+function know(){
+  firework();
+  listCopy.splice(index,1);
+  nextWord();
+}
+
+function dontKnow(){
+  document.getElementById("answer").innerHTML=listCopy[index].en;
+}
+
+/********** EXERCISES **********/
+function loadExercises(){
+  const box=document.getElementById("exercise");
+  box.innerHTML="";
+  exercises[currList].forEach((item,i)=>{
+    box.innerHTML+=`
+    <div style="margin:10px 0;">
+      ${i+1}. ${item.q}
+      <input id="ex${i}">
+      <button onclick="checkEx(${i})">Check</button>
+      <span id="res${i}" class="result"></span>
+    </div>`;
+  });
+}
+
+function checkEx(i){
+  const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+  const ans = exercises[currList][i].a.toLowerCase();
+  const box = document.getElementById("res"+i);
+
+  if(user === ans) {
+    box.innerHTML = "✔ Correct";
+    box.style.color = "#28a745"; // chữ Correct màu xanh lá
+    firework(); // gọi pháo hoa
+  } else {
+    box.innerHTML = "✘ " + exercises[currList][i].a;
+    box.style.color = "#C5705D"; // chữ sai màu đỏ
+  }
+}
+
+/********** FIREWORK **********/
+function firework(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.setProperty("--x",(Math.random()-.5)*600+"px");
+    c.style.setProperty("--y",(Math.random()-.5)*600+"px");
+    c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),900);
+  }
+}
+</script>
+
+</body>
+</html>

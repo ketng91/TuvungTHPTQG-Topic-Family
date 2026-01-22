@@ -243,6 +243,22 @@ select {
     50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
     100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
   }
+
+
+.mc-options {
+  margin-left: -20;        /* đẩy sang trái */
+  padding-left: -20px;
+}
+
+.mc-options div {
+  margin-left: 0;
+}
+
+.mc-options input[type="radio"] {
+  margin-right: -70px;     /* khoảng cách tròn – chữ */
+}
+
+
 </style>
 </head>
 
@@ -390,6 +406,10 @@ const data = {
   { en: "strict upbringing /strɪkt ˈʌpˌbrɪŋɪŋ/", vn: "sự nuôi dạy nghiêm khắc", tick: false },
   { en: "permissive parenting /pərˈmɪsɪv ˈpɛrəntɪŋ/", vn: "cách nuôi dạy nuông chiều", tick: false },
   { en: "role model /roʊl ˈmɑːdəl/", vn: "hình mẫu lý tưởng / tấm gương", tick: false },
+{ en: "lead by example /liːd baɪ ɪɡˈzɑːmpəl/", vn: "làm gương, nêu gương bằng hành động", tick: false },
+{ en: "set a good example (for sb) /sɛt ə ɡʊd ɪɡˈzɑːmpəl/", vn: "làm gương tốt (cho ai đó)", tick: false },
+{ en: "serve as an example (to sb) /sɜːrv æz ən ɪɡˈzɑːmpəl/", vn: "làm tấm gương (cho ai đó)", tick: false },
+{ en: "behavioural benchmark /bɪˈheɪvjərəl ˈbɛntʃmɑːrk/", vn: "chuẩn mực hành vi", tick: false },
   { en: "black sheep of the family /blæk ʃip əv ðə ˈfæməli/", vn: "kẻ lạc loài / đứa con hư trong nhà", tick: false },
   { en: "run in the family /rʌn ɪn ðə ˈfæməli/", vn: "có tính di truyền trong gia đình", tick: false },
   { en: "like father, like son /laɪk ˈfɑːðər laɪk sʌn/", vn: "cha nào con nấy", tick: false },
@@ -399,8 +419,54 @@ const data = {
   { en: "bring up children /brɪŋ ʌp ˈtʃɪldrən/", vn: "nuôi nấng con cái", tick: false },
   { en: "look after grandparents /lʊk ˈæftər ˈɡrændˌpɛrənts/", vn: "chăm sóc ông bà", tick: false },
   { en: "pass down traditions /pæs daʊn trəˈdɪʃənz/", vn: "truyền lại các truyền thống", tick: false },
+{ en: "adolescence /ˌædəˈlɛsəns/", vn: "tuổi vị thành niên", tick: false },
+{ en: "adolescent /ˌædəˈlɛsənt/", vn: "thanh thiếu niên", tick: false },
+{ en: "adopt /əˈdɒpt/", vn: "nhận nuôi; tiếp nhận", tick: false },
+{ en: "authoritarian /əˌθɔːrɪˈteəriən/", vn: "độc đoán, chuyên quyền", tick: false },
+{ en: "breadwinner /ˈbrɛdwɪnər/", vn: "trụ cột kinh tế gia đình", tick: false },
+{ en: "childhood /ˈtʃaɪldhʊd/", vn: "tuổi thơ", tick: false },
+{ en: "grounded /ˈɡraʊndɪd/", vn: "bị cấm túc", tick: false },
+{ en: "homemaker /ˈhəʊmmeɪkər/", vn: "người nội trợ", tick: false },
+{ en: "nurture /ˈnɜːrtʃər/", vn: "nuôi dưỡng, chăm sóc", tick: false },
+{ en: "obedient /əˈbiːdiənt/", vn: "vâng lời", tick: false },
+{ en: "overprotective /ˌəʊvərprəˈtɛktɪv/", vn: "bảo bọc quá mức", tick: false },
+{ en: "indulge /ɪnˈdʌldʒ/", vn: "nuông chiều", tick: false },
+{ en: "raise /reɪz/", vn: "nuôi nấng, dạy dỗ", tick: false },
+{ en: "sacrifice /ˈsækrɪfaɪs/", vn: "hy sinh", tick: false },
+{ en: "take out the garbage /teɪk aʊt ðə ˈɡɑːrbɪdʒ/", vn: "đổ rác", tick: false },
+{ en: "considerate /kənˈsɪdərət/", vn: "chu đáo, biết quan tâm đến người khác", tick: false },
+{ en: "look up to /lʊk ʌp tuː/", vn: "ngưỡng mộ, kính trọng", tick: false },
+{ en: "caring /ˈkeərɪŋ/", vn: "quan tâm, chu đáo", tick: false },
+{ en: "bear resemblance to /beər rɪˈzɛmbləns tuː/", vn: "có nét giống với", tick: false },
+{ en: "take responsibility for /teɪk rɪˌspɒnsəˈbɪlɪti fɔːr/", vn: "chịu trách nhiệm về", tick: false },
+{ en: "arrogant /ˈærəɡənt/", vn: "kiêu ngạo, tự cao", tick: false },
+{ en: "reserved /rɪˈzɜːrvd/", vn: "kín đáo, dè dặt, ít nói", tick: false },
+{ en: "support /səˈpɔːrt/", vn: "ủng hộ; hỗ trợ", tick: false },
+{ en: "sibling /ˈsɪblɪŋ/", vn: "anh/chị/em ruột", tick: false },
+{ en: "twins /twɪnz/", vn: "sinh đôi", tick: false },
+{ en: "domestic violence /dəˌmɛstɪk ˈvaɪələns/", vn: "bạo lực gia đình", tick: false },
+{ en: "lenient /ˈliːniənt/", vn: "khoan dung; dễ dãi", tick: false },
+{ en: "close to /kləʊs tuː/", vn: "thân thiết với", tick: false },
+{ en: "dysfunctional family /dɪsˈfʌŋkʃənəl ˈfæməli/", vn: "gia đình rối loạn, không lành mạnh", tick: false },
+{ en: "formative years /ˈfɔːrmətɪv jɪrz/", vn: "những năm tháng hình thành nhân cách", tick: false },
+{ en: "burden /ˈbɜːrdn/", vn: "gánh nặng", tick: false },
+{ en: "generation gap /ˌdʒɛnəˈreɪʃən ɡæp/", vn: "khoảng cách thế hệ", tick: false },
+{ en: "grow up /ɡrəʊ ʌp/", vn: "lớn lên, trưởng thành", tick: false },
+{ en: "start a family /stɑːrt ə ˈfæməli/", vn: "lập gia đình", tick: false },
+{ en: "settle down /ˈsɛtl daʊn/", vn: "ổn định cuộc sống (kết hôn)", tick: false },
+{ en: "settlement /ˈsɛtlmənt/", vn: "sự định cư; dàn xếp", tick: false },
+{ en: "spoiled brat /spɔɪld bræt/", vn: "đứa trẻ hư được nuông chiều", tick: false },
+{ en: "take after /teɪk ˈɑːftər/", vn: "giống (ai đó trong gia đình)", tick: false },
+{ en: "resemble /rɪˈzɛmbl/", vn: "giống với", tick: false },
+{ en: "tell off /tɛl ɒf/", vn: "mắng, quở trách", tick: false },
+{ en: "scold /skəʊld/", vn: "la rầy", tick: false },
+{ en: "give birth to /ɡɪv bɜːrθ tuː/", vn: "sinh ra", tick: false },
+{ en: "flesh and blood /flɛʃ ən blʌd/", vn: "máu mủ ruột thịt", tick: false },
+{ en: "join hands /dʒɔɪn hændz/", vn: "chung tay, hợp tác", tick: false },
+{ en: "run in the family /rʌn ɪn ðə ˈfæməli/", vn: "là đặc điểm di truyền trong gia đình", tick: false },
+{ en: "the apple of one’s eye /ði ˈæpl əv wʌnz aɪ/", vn: "báu vật, người được yêu quý nhất", tick: false },
+{ en: "two peas in a pod /tuː piːz ɪn ə pɒd/", vn: "giống nhau như đúc", tick: false },
   { en: "blood is thicker than water", vn: "một giọt máu đào hơn ao nước lã", tick: false },
-  { en: "own flesh and blood /oʊn flɛʃ ənd blʌd/", vn: "người máu mủ ruột thịt", tick: false },
   { en: "follow in sb's footsteps /ˈfɑːloʊ ɪn ˈfʊtˌstɛps/", vn: "nối nghiệp / theo bước chân ai", tick: false },
   { en: "bring home the bacon /brɪŋ hoʊm ðə ˈbeɪkən/", vn: "kiếm tiền nuôi gia đình", tick: false },
   { en: "a chip off the old block /ə tʃɪp ɔːf ðə oʊld blɑːk/", vn: "giống bố/mẹ như đúc", tick: false },
@@ -441,16 +507,8 @@ const exercises = {
     a: "filial "
   },
   {
-    q: "As an ________child, she never had any brothers or sisters to play with when she was growing up.", 
-    a: "only "
-  },
-  {
     q: "The ________ gap between the grandfather and his grandson is often wider due to different views on technology.", 
     a: "generation "
-  },
-  {
-    q: "After years of not speaking to each other, the two brothers are now completely ________.", 
-    a: "estranged"
   },
   {
     q: "Artistic talent seems to ________ in the family; almost everyone in his house is a gifted painter.", 
@@ -464,10 +522,66 @@ const exercises = {
     q: "He decided to follow in his father's ________ and become a doctor, just like his father and grandfather before him.", 
     a: "footsteps"
   },
-  {
-    q: "Even though they are different in many ways, Mark is a ________ off the old block; he looks and acts exactly like his dad.", 
-    a: "chip"
-  },
+{
+  q: "_________ is a person who manages a home and takes care of the house and family.",
+  options: ["Breadwinner", "Homemaker", "Babysitter", "Housemate"],
+  correct: "B"
+},
+{
+  q: "He should set a good _________ for his children.",
+  options: ["example", "role", "behavior", "mirror"],
+  correct: "A"
+},
+{
+  q: "His parents had been very aware of the problems of sibling _________ before the younger child was born.",
+  options: ["argument", "negotiation", "rivalry", "reunion"],
+  correct: "C"
+},
+{
+  q: "My father is responsible for earning money to _________ our family.",
+  options: ["bring", "make", "rise", "raise"],
+  correct: "D"
+},
+{
+  q: "I help my parents _________ the garbage every day.",
+  options: ["take out", "take up", "take over", "take on"],
+  correct: "A"
+},
+{
+  q: "Her parents are very _________ parents. They are very strict with their children.",
+  options: ["overprotective", "irresponsible", "authoritarian", "considerate"],
+  correct: "C"
+},
+{
+  q: "Parents must look after their children, but they shouldn’t be _________. Children need the freedom to get out and experience the world around them.",
+  options: ["lenient", "gentle", "overprotective", "responsible"],
+  correct: "C"
+},
+{
+  q: "When I was a child I always _________ my grandfather. He was a real role model for me.",
+  options: ["looked down on", "grew up", "looked up to", "took after"],
+  correct: "C"
+},
+{
+  q: "They are _________ parents. They don’t want to look after their children.",
+  options: ["irresponsible", "considerate", "careful", "caring"],
+  correct: "A"
+},
+{
+  q: "She looks quite different from all her siblings. Brothers and sisters usually _________ some resemblance to one another.",
+  options: ["take", "bear", "do", "make"],
+  correct: "B"
+},
+{
+  q: "You should take _________ for what you have done.",
+  options: ["responsible", "responsibly", "responsibility", "irresponsibility"],
+  correct: "C"
+},
+{
+  q: "She is a/an _________ girl. She always helps everybody.",
+  options: ["arrogant", "reserved", "obedient", "dishonest"],
+  correct: "C"
+},
   {
     q: "<b>Reading Practice:</b> In the modern era, the traditional nuclear family structure is increasingly being replaced by more diverse arrangements, such as single-parent families or blended families, reflecting a significant shift in societal norms. Central to this evolution is the changing role of the breadwinner; in many households, the rise of the dual-income family has necessitated a more equitable approach to sharing household chores. Despite these structural changes, the importance of a nurturing environment remains paramount for a child's upbringing, as it fosters the unconditional love and strong family ties that act as a buffer against external pressures. However, many parents today struggle with work-family balance, often leading to the phenomenon of the latchkey child, who must navigate daily life with minimal parental guidance. Furthermore, the widening generation gap and the challenges of caring for aging parents can strain the ties that bind, yet the cultural emphasis on filial piety continues to encourage many to look after grandparents and pass down traditions to the next generation.", 
     a: "Bản dịch: Trong kỷ nguyên hiện đại, cấu trúc gia đình hạt nhân truyền thống đang dần được thay thế bởi các hình thức đa dạng hơn, chẳng hạn như gia đình đơn thân hoặc gia đình có con riêng con chung, phản ánh một sự thay đổi đáng kể trong các định chuẩn xã hội. Trọng tâm của sự tiến hóa này là sự thay đổi vai trò của người trụ cột; tại nhiều hộ gia đình, sự gia tăng của gia đình có hai nguồn thu nhập đã đòi hỏi một cách tiếp cận công bằng hơn trong việc chia sẻ việc nhà. Bất chấp những thay đổi về mặt cấu trúc này, tầm quan trọng của một môi trường nuôi dưỡng vẫn là tối quan trọng đối với sự nuôi dạy một đứa trẻ, vì nó thúc đẩy tình yêu vô điều kiện và các mối quan hệ gia đình bền chặt — thứ đóng vai trò như một tấm đệm ngăn cách các áp lực bên ngoài. Tuy nhiên, nhiều bậc cha mẹ ngày nay phải vật lộn với việc cân bằng giữa công việc và gia đình, thường dẫn đến hiện tượng trẻ tự quản, những đứa trẻ phải điều hướng cuộc sống hàng ngày với sự hướng dẫn của cha mẹ ở mức tối thiểu. Hơn nữa, khoảng cách thế hệ ngày càng rộng và những thách thức trong việc chăm sóc cha mẹ già có thể làm căng thẳng những mối ràng buộc không thể tách rời, thế nhưng sự chú trọng của văn hóa vào lòng hiếu thảo vẫn tiếp tục khuyến khích nhiều người chăm sóc ông bà và truyền lại các truyền thống cho thế hệ mai sau."
@@ -554,31 +668,82 @@ function dontKnow(){
 
 /********** EXERCISES **********/
 function loadExercises(){
-  const box=document.getElementById("exercise");
-  box.innerHTML="";
-  exercises[currList].forEach((item,i)=>{
-    box.innerHTML+=`
-    <div style="margin:10px 0;">
-      ${i+1}. ${item.q}
-      <input id="ex${i}">
-      <button onclick="checkEx(${i})">Check</button>
-      <span id="res${i}" class="result"></span>
-    </div>`;
+  const box = document.getElementById("exercise");
+  box.innerHTML = "";
+
+  exercises[currList].forEach((item, i) => {
+
+    // ===== TRẮC NGHIỆM =====
+    if(item.options){
+      box.innerHTML += `
+        <div style="margin:15px 0;">
+          ${i+1}. ${item.q}
+          <div class="mc-options">
+            ${item.options.map((opt, idx) => `
+              <div>
+                <label>
+                  <input type="radio" name="ex${i}" value="${String.fromCharCode(65+idx)}">
+                  ${String.fromCharCode(65+idx)}. ${opt}
+                </label>
+              </div>
+            `).join("")}
+          </div>
+          <button onclick="checkEx(${i})">Check</button>
+          <span id="res${i}" class="result"></span>
+        </div>
+      `;
+    }
+
+    // ===== ĐIỀN TỪ =====
+    else {
+      box.innerHTML += `
+        <div style="margin:15px 0;">
+          ${i+1}. ${item.q}
+          <input id="ex${i}">
+          <button onclick="checkEx(${i})">Check</button>
+          <span id="res${i}" class="result"></span>
+        </div>
+      `;
+    }
   });
 }
 
 function checkEx(i){
-  const user = document.getElementById("ex"+i).value.trim().toLowerCase();
-  const ans = exercises[currList][i].a.toLowerCase();
+  const item = exercises[currList][i];
   const box = document.getElementById("res"+i);
 
-  if(user === ans) {
-    box.innerHTML = "✔ Correct";
-    box.style.color = "#28a745"; // chữ Correct màu xanh lá
-    firework(); // gọi pháo hoa
-  } else {
-    box.innerHTML = "✘ " + exercises[currList][i].a;
-    box.style.color = "#D02752"; // chữ sai màu đỏ
+  // ===== TRẮC NGHIỆM =====
+  if(item.options){
+    const chosen = document.querySelector(`input[name="ex${i}"]:checked`);
+    if(!chosen){
+      box.innerHTML = "⚠ Chọn 1 đáp án";
+      box.style.color = "#c77d00";
+      return;
+    }
+
+    if(chosen.value === item.correct){
+      box.innerHTML = "✔ Correct";
+      box.style.color = "#28a745";
+      firework();
+    } else {
+      box.innerHTML = `✘ Đáp án đúng: ${item.correct}`;
+      box.style.color = "#D02752";
+    }
+  }
+
+  // ===== ĐIỀN TỪ =====
+  else {
+    const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+    const ans = item.a.toLowerCase();
+
+    if(user === ans){
+      box.innerHTML = "✔ Correct";
+      box.style.color = "#28a745";
+      firework();
+    } else {
+      box.innerHTML = "✘ " + item.a;
+      box.style.color = "#D02752";
+    }
   }
 }
 
